@@ -1,0 +1,42 @@
+#Integration
+#INPUT
+GET a, b, f_x, method FROM user
+n <- 1000
+h <- (b - a) / n
+
+#PROCESS
+shift <- 0
+constant <- 0
+area <- 0.0
+
+IF method == "LRM" THEN
+    shift <- 0
+ELIF method == "RRM" THEN
+    shift <- 1
+ELIF method == "MRM" THEN
+    constant <- h / 2
+ELIF method == "T" THEN
+    # Trapezoidal Rule
+    FOR i FROM 0 TO n DO
+        xi <- a + i * h
+        height <- EVAL(f_x, xi)
+        IF i == 0 OR i == n THEN
+            area <- area + height
+        ELSE
+            area <- area + 2 * height
+        END IF
+    END FOR
+    area <- area * (h / 2)
+END IF
+
+# Rectangle methods (LRM, RRM, MRM)
+IF method != "T" THEN
+    FOR i FROM (0 + shift) TO (n + shift) DO
+        xi <- a + i * h + constant
+        height <- EVAL(f_x, xi)
+        area <- area + height * h
+    END FOR
+END IF
+
+#OUTPUT
+DISPLAY "The integration of " + f_x + " is " + area
