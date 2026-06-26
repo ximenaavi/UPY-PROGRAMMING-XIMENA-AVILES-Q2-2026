@@ -1,0 +1,18 @@
+#INPUT
+
+GET verb from user -> verb  #str
+SET pronouns dictionary -> pronouns  #list
+SET endings depending in termination (ar/er/ir)  -> endings    #dict
+
+#PROCESS
+
+GET ending (last two letters) from verb -> ending   #str
+GET stem (all the word except last two letters) from verb -> stem   #str
+
+
+#OUTPUT
+
+FOR index in pronouns, ENUMERATE pronoun    #Make a list with the amount of pronouns in the list
+    FIND correct conjugation in endings -> termination  #str
+    DISPLAY pronoun + stem + termination
+
