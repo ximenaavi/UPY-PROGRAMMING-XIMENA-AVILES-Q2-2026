@@ -1,0 +1,38 @@
+#CLASSWORK 10 School Management System
+
+#INPUT
+
+GET user -> user    #str
+GET password from user -> password #str
+SET user list and name -> users  #dict
+SET subjects -> subjects    #tuple
+SET grades by user -> grades    #dict
+
+#PROCESS
+
+IF user OR password is wrong
+    Display "User or Password is incorrect, try again"
+ELSE
+    IF rol EQUALS student
+        Display subject + grade
+    IF grade > 7.0
+        approved =+ subject
+    ELSE
+        pending =+ subject
+
+#OUTPUT
+
+IF rol EQUAL student
+    Display user + name
+    Display subject + grade
+    Display "Approved subject:" + approved
+    Display "Pending subject:" + pending
+
+IF rol EQUALS teacher
+    Display students + subject + grade  #Show list of students with subject and grades
+
+IF rol EQUALS coordinator
+    Dsiplay teacher + name
+    Display student + subject + grade
+
+
