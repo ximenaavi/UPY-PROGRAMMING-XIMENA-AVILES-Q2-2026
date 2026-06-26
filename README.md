@@ -25,7 +25,9 @@ Included files:
 3. `classwork08.py`  
    Functional Python program with comments for:
    - IPO Specification
-#CLASSWORK09 - Spanish Verb Conjugator
+     
+# CLASSWORK09 - Spanish Verb Conjugator
+
 The Classwork-09-Spanish-Verb-Conjugator folder was added with the program spanish_verb_conjugator.py, the pseudocode file cw09PPP.txt, and the corresponding flowchart, cw09flowchart.png. The program conjugates regular Spanish verbs in the present tense.
 The program prompts the user for a regular Spanish verb and conjugates it for all pronouns:
 
