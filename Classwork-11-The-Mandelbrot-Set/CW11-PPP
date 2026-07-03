@@ -1,0 +1,42 @@
+#INPUT
+SET config <- {}
+SET file <- OPEN "config.txt"
+
+FOR EACH line IN file THEN
+    SET parameter, value <- line.strip().split("=")
+    IF "." IN value THEN
+        SET config[parameter] <- float(value)
+    ELSE
+        SET config[parameter] <- int(value)
+    END IF
+END FOR
+CLOSE file
+
+#PROCESS
+SET width <- config["ancho"]
+SET height <- config["alto"]
+SET max_iter <- config["max_iter"]
+
+SET output <- OPEN "mandelbrot.csv"
+Escribir "row,column,iterations" EN output
+
+FOR row <- 0 TO height-1 THEN
+    FOR column <- 0 TO width-1 THEN
+        SET real <- config["real_min"] + (column / width) * (config["real_max"] - config["real_min"])
+        SET imag <- config["imag_min"] + (row / height) * (config["imag_max"] - config["imag_min"])
+        SET c <- complex(real, imag)
+
+        SET z <- 0 + 0j
+        SET iterations <- 0
+
+        WHILE (abs(z) <= 2) AND (iterations < max_iter) THEN
+            SET z <- z * z + c
+            SET iterations <- iterations + 1
+        END WHILE
+
+        #OUTPUT
+        Escribir row, column, iterations EN output
+    END FOR
+END FOR
+
+CLOSE output
