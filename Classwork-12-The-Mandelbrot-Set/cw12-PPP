@@ -1,0 +1,56 @@
+#INPUT
+GET config file
+SET config <- empty dictionary
+FOR each linea IN config file THEN
+    SET parameter, value <- split linea by "="
+    IF "." IN value THEN
+        SET config[parameter] <- float(value)
+    ELSE
+        SET config[parameter] <- int(value)
+    END IF
+END FOR
+Escribir config
+
+GET mandelbrot.csv file
+SET lineas <- readlines of file
+REMOVE first line of lineas #quita encabezados
+
+SET max_iter <- config["max_iter"]
+SET ancho, alto <- config["ancho"], config["alto"]
+
+SET img <- new HSV image of size (ancho, alto)
+SET points_drawn <- 0
+
+#PROCESS
+FOR each linea IN lineas THEN
+    SET row, column, iterations <- split linea by ","
+    SET iterations <- int(iterations)
+    SET row <- int(row)
+    SET column <- int(column)
+
+    IF row < 0 OR row >= alto OR column < 0 OR column >= ancho THEN
+        RAISE ValueError with point out of bounds message
+    END IF
+
+    IF iterations == max_iter THEN
+        SET color <- (0, 0, 0)
+    ELSE
+        SET hue <- int((iterations / max_iter) * 255)
+        SET color <- (hue, 255, 255)
+    END IF
+
+    SET pixel at (column, row) IN img <- color
+    SET points_drawn <- points_drawn + 1
+END FOR
+
+SET expected_points <- ancho * alto
+
+#OUTPUT
+IF points_drawn != expected_points THEN
+    Escribir "WARNING: mandelbrot.csv has" points_drawn "points, but expected" expected_points
+END IF
+
+SET img_rgb <- convert img to RGB
+SAVE img_rgb as "mandelbrot2.png"
+Escribir "DONE"
+```
