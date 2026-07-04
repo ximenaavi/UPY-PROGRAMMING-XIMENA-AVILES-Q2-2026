@@ -40,20 +40,20 @@ Included Files
 
 1.spanish_verb_conjugator.py
 
-Simple program that conjugates the verb and gives you a sentence.
+   Simple program that conjugates the verb and gives you a sentence.
 
 2.cw09PPP.txt
 
-Contains the complete pseudocode following class rules:
-
-Simple English.
-Uses <- for assignments.
-Uses # for comments.
-Does not contain Python syntax.
+   Contains the complete pseudocode following class rules:
+   
+   Simple English.
+   Uses <- for assignments.
+   Uses # for comments.
+   Does not contain Python syntax.
 
 3.cw09flowchart.png
-
-Flow diagram showing the program logic: reading the verb, separating the stem and ending, selecting the ending type based on -ar, -er, or -ir, and the print loop for each pronoun.
+  
+   Flow diagram showing the program logic: reading the verb, separating the stem and ending, selecting the ending type based on -ar, -er, or -ir, and the print loop for    each pronoun.
 
 # CLASSWORK10 - School Management System
 
@@ -70,23 +70,23 @@ Executes the action based on the role: view grade report, grade students, or vie
 Files included:
 1. cw10-school-management-system.py
 
-Functional Python program that implements the school management system.
+   Functional Python program that implements the school management system.
 
 2. cw10PPP.txt
 
-Contains the complete pseudocode following class rules:
-
-Simple English.
-Uses <- for assignments.
-Uses # for comments.
-Contains no Python syntax.
+   Contains the complete pseudocode following class rules:
+   
+   Simple English.
+   Uses <- for assignments.
+   Uses # for comments.
+   Contains no Python syntax.
 
 
 3. cw10flowchart.png
 
-Flowchart diagram showing the program logic: login validation,
-
-role selection, and the three possible paths (student grade report, teacher grade entry, and coordinator general lists).
+   Flowchart diagram showing the program logic: login validation,
+   
+   role selection, and the three possible paths (student grade report, teacher grade entry, and coordinator general lists).
 
 Example usage:
 
@@ -102,4 +102,22 @@ Pending subjects: {'English'}
 Authorship statement
 The content of this repository was personally developed by its author.
 
-AI DISCLOSURE - No artificial intelligence tool was used for the generation of code, documentation, or any other
+# CLASSWORK 11 - The Mandelbrot Set
+The Classwork-11-Mandelbrot-Set folder was added with the program mandelbrot.py, the pseudocode file cw11PPP.txt, and the corresponding flowchart, cw11flowchart.png. The program generates the Mandelbrot set by reading configuration parameters from a file and calculating the number of iterations for each pixel in the image:
+Reads the configuration parameters from config.txt (width, height, max iterations, and the real/imaginary bounds). Loops through every row and column of the image grid. Converts each pixel position into a complex number c. Iterates the Mandelbrot formula z = z² + c until the value escapes (abs(z) > 2) or the maximum iteration count is reached. Writes the row, column, and iteration count to a CSV file.
+Included Files
+
+1. classwork11-the-mandelbrot-set.py
+   
+   Program that reads the configuration, computes the Mandelbrot iterations for each pixel, and writes the results to mandelbrot.csv.
+
+2. cw11PPP.txt
+
+   Contains the complete pseudocode following class rules:
+   Simple English. Uses <- for assignments. Uses # for comments. Does not contain Python syntax.
+
+3. cw11flowchart.png
+
+   Flow diagram showing the program logic: reading and parsing the config file, looping through rows and columns, calculating the complex number c, running the escape-      time iteration loop, and writing each result to the output file.
+
+AI DISCLOSURE - No artificial intelligence tool was used for the generation of code, documentation or any other.
