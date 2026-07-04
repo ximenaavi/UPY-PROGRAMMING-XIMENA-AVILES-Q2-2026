@@ -120,4 +120,28 @@ Included Files
 
    Flow diagram showing the program logic: reading and parsing the config file, looping through rows and columns, calculating the complex number c, running the escape-      time iteration loop, and writing each result to the output file.
 
+# CLASSWORK 12 - The Mandelbrot Set
+The Classwork-12-Mandelbrot-Set folder was added with the program Classwork-12-The-Mandelbrot-Set.py, the pseudocode file cw12PPP.txt, a csv file called mandelbrot.py and a config.txt, with two images generated as a demostration, mandelbrot1.png, the "valley of hippocampus" and mandelbrot2.py.
+
+1.Classwork-12-The-Mandelbrot-Set.py
+   
+   Program that reads the configuration, computes the Mandelbrot iterations for each pixel, and writes the results to mandelbrot.csv.
+
+2. cw12PPP.txt
+
+   Contains the complete pseudocode following class rules:
+   Simple English. Uses <- for assignments. Uses # for comments. Does not contain Python syntax.
+
+3. cw12flowchart.png
+
+   Flow diagram showing the program logic based on the PPP.
+
+4. config.txt
+
+   A list of details needed to generate the images.
+
+5. mandelbrot.csv
+
+   The csv file that we created on the past assignment.
+   
 AI DISCLOSURE - No artificial intelligence tool was used for the generation of code, documentation or any other.
