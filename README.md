@@ -145,3 +145,24 @@ The Classwork-12-Mandelbrot-Set folder was added with the program Classwork-12-T
    The csv file that we created on the past assignment.
    
 AI DISCLOSURE - No artificial intelligence tool was used for the generation of code, documentation or any other.
+
+# CLASSWORK 14 & 15 - Error Handling
+
+The pair of folders where added with the .py files of previous assignment to check and correct the code.
+
+# CLASSWORK 15 - Sorting Algorithms
+The Classwork-15-Sorting-Algorithms folder was added with the program sorting_algorithms.py, the pseudocode file sorting_algorithms_ppp.txt, and the corresponding flowchart, sorting_algorithms_flowchart.png. The program implements the bubble sort algorithm with a step-by-step visualization of the sorting process:
+Generates a list of random numbers. Prints the list before sorting. Runs the bubble sort algorithm, comparing and swapping adjacent elements when out of order. Draws the bars on a canvas after each comparison, highlighting the pair being checked. Displays the final sorted list once the algorithm finishes.
+Included Files
+
+1.sorting_algorithms.py
+
+   Functional Python program that implements bubble sort with animated bar visualization.
+
+2.sorting_algorithms_ppp.txt
+
+   Contains the complete pseudocode following class rules: Simple English. Uses <- for assignments. Uses # for comments. Does not contain Python syntax.
+
+3.sorting_algorithms_flowchart.png
+
+   Flow diagram showing the program logic: generating the list, the sweep and pair comparison loops, the swap condition, drawing the bars, and displaying the final          sorted result.
