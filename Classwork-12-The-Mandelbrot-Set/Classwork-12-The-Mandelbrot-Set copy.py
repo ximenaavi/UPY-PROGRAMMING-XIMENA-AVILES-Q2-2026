@@ -1,7 +1,7 @@
 from PIL import Image
 config = {}
 try:
-    with open("config", "r") as file:
+    with open("config.txt", "r") as file:
         for line in file:
             parameter, value = line.strip().split("=")
             config[parameter] = float(value) if "." in  value else int(value)
@@ -54,5 +54,5 @@ expected_points = ancho * alto
 if points_drawn != expected_points:
     print(f"WARNING: mandelbrot.csv has {points_drawn} points, but expected {expected_points}. Regenerate the CSV.")
 img_rgb = img.convert("RGB")
-img_rgb.save("mandelbrot2.png")
+img_rgb.save("mandelbrot3.png")
 print("DONE")
