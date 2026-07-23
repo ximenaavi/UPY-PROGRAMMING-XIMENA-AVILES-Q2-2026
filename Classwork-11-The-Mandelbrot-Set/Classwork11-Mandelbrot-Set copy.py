@@ -2,7 +2,7 @@
 #INPUT
 config = {}
 try:
-    with open("config", "r") as file:
+    with open("config.txt", "r") as file:
         for line in file:
             parameter, value = line.strip().split("=")
             config[parameter] = float(value) if "." in value else int(value)
