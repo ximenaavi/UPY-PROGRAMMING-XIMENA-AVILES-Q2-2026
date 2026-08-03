@@ -1,0 +1,98 @@
+====================================================
+PPP - Pseudocódigo del Programa
+Líneas Verticales Configurables (pygame)
+====================================================
+
+# ------------------------------------------------------------
+# FUNCIÓN: calculate_x_position
+# Calcula la posición en X de cada línea vertical, centradas
+# horizontalmente sobre la superficie
+# ------------------------------------------------------------
+BEGIN calculate_x_position(surface, vertical_lines, space)
+
+    x_positions ← lista vacía
+    width ← ancho de surface
+    spacing ← space * width
+    central_line ← width / 2
+    offset ← - CONVERTIR(vertical_lines / 2) A entero
+
+    FOR count ← 1 TO vertical_lines
+        AGREGAR (central_line + offset * spacing) A x_positions
+        offset ← offset + 1
+    ENDFOR
+
+    RETURN x_positions
+
+END calculate_x_position
+
+
+# ------------------------------------------------------------
+# FUNCIÓN: draw_vertical_lines
+# Dibuja cada posición almacenada como una línea vertical que
+# cruza toda la altura de la superficie
+# ------------------------------------------------------------
+BEGIN draw_vertical_lines(surface, x_positions, color, width ← 2)
+
+    height ← alto de surface
+
+    FOR EACH x IN x_positions
+        DIBUJAR LÍNEA SOBRE surface DESDE (x, 0) HASTA (x, height) CON color, width
+    ENDFOR
+
+END draw_vertical_lines
+
+
+# ------------------------------------------------------------
+# PROGRAMA PRINCIPAL
+# ------------------------------------------------------------
+BEGIN main
+
+    # ---------------- INPUT ----------------
+    # Leer config.txt línea por línea y adivinar el tipo de cada
+    # valor (tupla, real o entero) para guardarlo en un diccionario
+    config ← diccionario vacío
+
+    OPEN archivo "config.txt" PARA LECTURA AS file
+    FOR EACH line IN file
+        QUITAR espacios al inicio y al final de line
+        SEPARAR line EN parameter, value USANDO "="
+        IF value CONTIENE "," THEN
+            config[parameter] ← TUPLA DE enteros A PARTIR DE SEPARAR(value, ",")
+        ELSE IF value CONTIENE "." THEN
+            config[parameter] ← CONVERTIR value A real
+        ELSE
+            config[parameter] ← CONVERTIR value A entero
+        ENDIF
+    ENDFOR
+    CLOSE file
+
+    # ---------------- PROCESS --------------
+    INICIALIZAR librería gráfica
+    screen ← CREAR VENTANA DE TAMAÑO (config["width"], config["height"])
+
+    x_positions ← LLAMAR A calculate_x_position(screen, config["vertical_lines"], config["space"])
+
+    # ---------------- OUTPUT ---------------
+    ESCRIBIR x_positions
+
+    # ---------------- PROCESS --------------
+    # Ciclo principal: mantener la ventana abierta y volver a
+    # dibujar las líneas en cada cuadro, hasta que el usuario la cierre
+    running ← VERDADERO
+
+    WHILE running
+        FOR EACH event IN eventos pendientes de la ventana
+            IF event ES "QUIT" THEN
+                running ← FALSO
+            ENDIF
+        ENDFOR
+
+        RELLENAR screen CON config["bg_color"]
+        LLAMAR A draw_vertical_lines(screen, x_positions, config["line_color"])
+        ACTUALIZAR la ventana
+
+    ENDWHILE
+
+    CERRAR librería gráfica
+
+END main
