@@ -1,0 +1,43 @@
+# PPP - Pseudocode Programming Process
+
+BEGIN
+    # INPUT
+    numbers <- list of 10 random integers
+
+    # PROCESS
+    Escribir "Before bubble sort: ", numbers
+    CALL bubble_sort_animated(numbers)
+
+    FUNCTION bubble_sort_animated(numbers)
+        n <- length of numbers
+        SET canvas scale
+
+        FOR sweep <- 0 TO n - 1 THEN
+            FOR pair <- 0 TO n - 1 - sweep THEN
+                CALL draw_bars(numbers, pair, pair + 1)
+                IF numbers[pair] > numbers[pair + 1] THEN
+                    SWAP numbers[pair] AND numbers[pair + 1]
+                    CALL draw_bars(numbers, pair, pair + 1)
+                END IF
+            END FOR
+        END FOR
+
+        CALL draw_bars(numbers)
+    END FUNCTION
+
+    FUNCTION draw_bars(numbers, selected)
+        CLEAR canvas
+        FOR each number in numbers THEN
+            IF its index is in selected THEN
+                color <- red
+            ELSE
+                color <- blue
+            END IF
+            DRAW bar with that color and height
+        END FOR
+        SHOW canvas
+    END FUNCTION
+
+    # OUTPUT
+    Escribir "After bubble sort: ", numbers
+END
